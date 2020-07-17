@@ -1,9 +1,20 @@
 import pyclesperanto_prototype as cle
-print(cle.get_gpu_name())
+from pathlib import Path
+from skimage.io import imread
+
+print(f"Using GPU: {cle.get_gpu_name()}")
 
 # load data
-from skimage.io import imread
-image = imread('C:/structure/teaching/clij2_example_data/lund1051_resampled.tif')
+lund_file = Path(__file__).parent.parent.parent / "data" / "lund1051_resampled.tif"
+print(lund_file)
+if not lund_file.exists():
+    import urllib.request
+
+    print("Downloading lund1051_resampled.tif...")
+    url = "https://git.mpi-cbg.de/rhaase/clij2_example_data/raw/master/lund1051_resampled.tif"
+    urllib.request.urlretrieve(url, str(lund_file))
+
+image = imread(str(lund_file))
 print(image.shape)
 
 ## Load a data set

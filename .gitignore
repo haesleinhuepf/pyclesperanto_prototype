@@ -140,3 +140,4 @@ cython_debug/
 .vscode/settings.json
 /.idea/
 .DS_STORE
+data/lund1051_resampled.tif
