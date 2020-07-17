@@ -6,7 +6,6 @@ print(f"Using GPU: {cle.get_gpu_name()}")
 
 # load data
 lund_file = Path(__file__).parent.parent.parent / "data" / "lund1051_resampled.tif"
-print(lund_file)
 if not lund_file.exists():
     import urllib.request
 
